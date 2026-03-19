@@ -58,7 +58,7 @@ services:
       - "${PMA_PORT}:80" # (4.4) กำหนดพอร์ตให้สอดคล้องกับ .env [4]
     networks:
       - frontend-zone
-      - ________-zone # (4.5) เชื่อมกับวงปิดสำหรับ DB [2]
+      - backend-zone # (4.5) เชื่อมกับวงปิดสำหรับ DB [2]
     secrets:
       - db_root_pass
     depends_on:
@@ -76,8 +76,8 @@ volumes:
 
 configs:
   my-nginx-conf:
-file: ./_________/my-nginx.conf # (5.2) เติมชื่อโฟลเดอร์ที่เก็บไฟล์คอนฟิก
+file: ./php/my-nginx.conf # (5.2) เติมชื่อโฟลเดอร์ที่เก็บไฟล์คอนฟิก
 
 secrets:
   db_root_pass:
-file: __________/____________ # (5.3) เติมชื่อโฟลเดอร์และไฟล์ที่เก็บรหัสผ่านของฐานข้อมูล
+file: secret/db_root_pass # (5.3) เติมชื่อโฟลเดอร์และไฟล์ที่เก็บรหัสผ่านของฐานข้อมูล
